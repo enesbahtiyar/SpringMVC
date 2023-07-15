@@ -1,6 +1,9 @@
 package com.eb.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,10 +14,13 @@ public class Student
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Provide a valid first name.") //null, empty(""), blank("         ") not acceptable
     private String firstName;
 
+    @NotEmpty(message = "Provide a valid last name.") //null, empty("") not acceptable
     private String lastName;
 
+    @NotNull(message = "Provide a valid grade.") //null is not acceptable
     private int grade;
 
     private LocalDateTime createDate = LocalDateTime.now();
