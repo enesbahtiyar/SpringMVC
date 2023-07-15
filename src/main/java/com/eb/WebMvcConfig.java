@@ -32,11 +32,9 @@ public class WebMvcConfig implements WebMvcConfigurer
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry)
     {
-        registry.addResourceHandler();
-
         //find the resources from the path
         registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources")
+                .addResourceLocations("/resources/")
                 .setCachePeriod(0);  //giving a period time for caching
     }
 }
